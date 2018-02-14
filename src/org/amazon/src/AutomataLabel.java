@@ -46,7 +46,7 @@ public class AutomataLabel {
             }
         }
 
-        return new ArrayList<>(Arrays.asList(absStart, endInd));
+        return endInd==Integer.MAX_VALUE ? new ArrayList<>(Arrays.asList(0)) : new ArrayList<>(Arrays.asList(absStart, endInd));
     }
 
     private boolean checkStoreArray(int[] store) {
