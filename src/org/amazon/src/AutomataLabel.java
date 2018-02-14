@@ -18,6 +18,7 @@ public class AutomataLabel {
     public List<Integer> labelProductEfficient(List<String> tagList, List<String>  availableTagList){
         int[] store = new int[tagList.size()];
         int startInd = 0;
+        int absStart = 0;
         int endInd = Integer.MAX_VALUE;
         int minDistance = Integer.MAX_VALUE;
         for(int i=0;i<availableTagList.size();i++){
@@ -28,28 +29,24 @@ public class AutomataLabel {
                     store[j] = store[j] + 1;
                 }
             }
-            if(checkStoreArray(store)) {
+            while(checkStoreArray(store)) {
+                String extract = availableTagList.get(startInd);
+                for (int j = 0; j < tagList.size(); j++) {
+                    String tag = tagList.get(j);
+                    if (extract.equalsIgnoreCase(tag)) {
+                        store[j] =store[j]-1;
+                    }
+                }
                 if (i - startInd < minDistance) {
                     minDistance = i - startInd;
                     endInd=i;
-                    //remove from store if exist
-                    String extract = availableTagList.get(startInd);
-                    for (int j = 0; j < tagList.size(); j++) {
-                        String tag = tagList.get(j);
-                        if (extract.equalsIgnoreCase(tag)) {
-                            store[j] =store[j]-1;
-                        }
-                    }
-                    // increment startInd
-                    startInd++;
-                }else {
-                    break;
+                    absStart = startInd;
                 }
-
+                startInd++;
             }
         }
 
-        return new ArrayList<>(Arrays.asList(--startInd, endInd));
+        return new ArrayList<>(Arrays.asList(absStart, endInd));
     }
 
     private boolean checkStoreArray(int[] store) {
