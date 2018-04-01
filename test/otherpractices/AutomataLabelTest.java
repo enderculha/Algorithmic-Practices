@@ -1,6 +1,5 @@
-package org.amazon.test;
+package otherpractices;
 
-import org.amazon.src.AutomataLabel;
 import org.junit.Test;
 
 import java.util.ArrayList;
