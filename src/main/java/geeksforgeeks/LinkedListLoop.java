@@ -3,9 +3,7 @@ package geeksforgeeks;
 import datastructures.MyLinkedList;
 import datastructures.Node;
 
-/**
- * Created by lenovo on 21.02.2018.
- */
+
 public class LinkedListLoop {
 
     public Node findBeginningofLoop(MyLinkedList list){

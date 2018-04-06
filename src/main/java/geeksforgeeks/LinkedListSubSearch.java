@@ -2,9 +2,7 @@ package geeksforgeeks;
 
 import datastructures.Node;
 
-/**
- * Created by lenovo on 24.03.2018.
- */
+
 public class LinkedListSubSearch {
 
     public boolean linkedListSubSearch(Node big, Node small){
@@ -20,15 +18,22 @@ public class LinkedListSubSearch {
 
         Node node = big;
         Node search = small;
+        boolean isConsecutive = false;
         while(node!=null){
             while(search!=null) {
                 if (node.equals(search)) {
                     search = search.next;
                     node = node.next;
+                    isConsecutive = true;
                 } else {
-                    search = small;
-                    node = node.next;
+                    if(isConsecutive){
+                        search = small;
+                    } else {
+                        search = small;
+                        node = node.next;
+                    }
                     break;
+
                 }
             }
             if(search==null)
