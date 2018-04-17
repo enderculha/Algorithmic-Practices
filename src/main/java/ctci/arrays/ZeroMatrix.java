@@ -93,17 +93,17 @@ public class ZeroMatrix {
         return input;
     }
 
-    private int[][] nullifyColumns(int[][] input, int column) {
-        for(int i=0;i<input.length;i++){
-            input[i][column] = 0;
+    private int[][] nullifyColumns(int[][] input, int row) {
+        for(int i=0;i<input[0].length;i++){
+            input[row][i] = 0;
         }
         return input;
     }
 
-    private int[][] nullifyRows(int[][] input, int row) {
+    private int[][] nullifyRows(int[][] input, int column) {
 
-        for(int i=0;i<input[0].length;i++){
-            input[row][i] = 0;
+        for(int i=0;i<input.length;i++){
+            input[i][column] = 0;
         }
         return input;
     }
