@@ -8,8 +8,8 @@ public class ZeroMatrixTest {
 
     private final ZeroMatrix zeroMatrix = new ZeroMatrix();
 
-    private int[][] input1x1 = {{1}};
-    private int[][] expected1x1 = {{1}};
+    private final int[][] input1x1 = {{1}};
+    private final int[][] expected1x1 = {{1}};
 
     private int[][] input2x2 = {{1,0},{1,1}};
     private int[][] expected2x2 = {{0,0},{1,0}};
@@ -20,8 +20,8 @@ public class ZeroMatrixTest {
     private int[][] input3x3 = {{1,1,1},{1,1,1},{1,1,1}};
     private int[][] expected3x3 = {{1,1,1},{1,1,1},{1,1,1}};
 
-    private int[][] input4x3 = {{1,1,1},{0,1,1},{1,1,0},{1,1,1}};
-    private int[][] expected4x3 = {{0,1,0},{0,0,0},{0,0,0},{0,1,0}};
+    private final int[][] input4x3 = {{1,1,1},{0,1,1},{1,1,0},{1,1,1}};
+    private final int[][] expected4x3 = {{0,1,0},{0,0,0},{0,0,0},{0,1,0}};
 
     @Test
     public void input1x1ShouldReturnExpected1x1(){
@@ -51,6 +51,9 @@ public class ZeroMatrixTest {
     @Test
     public void input4x3ShouldReturnExpected4x3(){
         int[][] actual = zeroMatrix.findZeroesMatrix(input4x3);
+        assertArrayEquals("Expected should be equal to actual",expected4x3,actual);
+
+        actual = zeroMatrix.findZeroesMatrixWorse(input4x3);
         assertArrayEquals("Expected should be equal to actual",expected4x3,actual);
     }
 
