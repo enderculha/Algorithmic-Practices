@@ -2,7 +2,7 @@ package datastructures;
 
 public class Node {
 
-    int data;
+    public int data;
 
     @Override
     public boolean equals(Object o) {
